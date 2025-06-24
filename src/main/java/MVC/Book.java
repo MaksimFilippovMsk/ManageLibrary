@@ -1,16 +1,14 @@
 package MVC;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 @Entity
-@Table(name = "books")
+@Table(name = "book")
 public class Book {
 
    @Id
+   @GeneratedValue
    private long id;
    @Column(name = "title")
     private String title;

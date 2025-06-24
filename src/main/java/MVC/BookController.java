@@ -1,9 +1,8 @@
 package MVC;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -11,24 +10,43 @@ import java.util.List;
 public class BookController {
     private BookService bookService;
 
-    public BookController(BookService bookService){
+
+    public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
     @GetMapping("/allBooks")
-    public List<Book> getAllBooks() {
+    public ResponseEntity<?> getAllBooks() {
         //todo bookrepository.getAllBooks
-        return bookService.getAllBooks();
+        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
+
     @PostMapping("/addBook")
-    public void addBook(Book book){
+    public ResponseEntity<?> addBook(@RequestBody Book book) {
         bookService.addBook(book);
+        if(bookService.containsBook(book)) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Не удалось добавить книгу",HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    //    public void changeBook(MVC.Book book,long newId){
-//    }
+
+    @PutMapping("/changeBook")
+    public void changeBook(@RequestBody Book newBook, @RequestParam(name = "id") long id) {         // fixme
+        bookService.changeBook(newBook, id);
+    }
+    @GetMapping("/getAllAuthors")
+    public List<String> getAllAuthors() {
+        return bookService.getAllAuthors();
+    }
+    @GetMapping("/getByAuthor")
+    public List<Book> getByAuthor(@RequestParam(name = "name") String name) {
+        return bookService.getByAuthor(name);
+    }
+
     @DeleteMapping("/deleteBook")
-    public void removeBook(Book book){
+    public void removeBook(@RequestBody Book book) {
         bookService.removeBook(book);
     }
+
 
 }

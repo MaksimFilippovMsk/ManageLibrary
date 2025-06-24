@@ -7,6 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class);
+       SpringApplication.run(Main.class);
+
+        // сканирует все компоненты и запоминает ка
+
+        BookController controller1 = new BookController(null);
+        BookController controller2 = new BookController(null);
+        BookController controller3 = new BookController(null);
+
+        System.out.println(controller3);
     }
 }

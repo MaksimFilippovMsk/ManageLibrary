@@ -1,6 +1,7 @@
 package MVC;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,6 +13,9 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     //  @Id is needed in MVC.Book.class
     //  application.properties file is needed in directory resources on the left
     //  install database server (mysql server or postgre)
+
+//    @Query("SELECT b FROM Book b WHERE id = :id AND name = :name")
+//    public Book getByIdAndName(long id, String name);
 }
 
 
