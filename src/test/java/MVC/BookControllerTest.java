@@ -3,7 +3,7 @@ package MVC;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-@Test
+
 public class BookControllerTest {
 private BookService bookService;
 

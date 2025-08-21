@@ -20,6 +20,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>2.23.1</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.2.10</version>
@@ -33,10 +39,19 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.8.2</version> <!-- Версия может быть другой, актуальную версию смотрите на сайте JUnit -->
+      <version>5.8.2</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.15.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.telegram</groupId>
+      <artifactId>telegrambots-spring-boot-starter</artifactId>
+      <version>6.0.0</version>
+    </dependency>         <!--    fixme -->
 
 
   </dependencies>
