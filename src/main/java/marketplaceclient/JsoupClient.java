@@ -53,7 +53,7 @@ public class JsoupClient {
 //            }
 
 
-            return new BookResult(bookTitle, price, websiteUrl);
+            return null; // new BookResult(bookTitle, price, websiteUrl); fixme
 
 
 //            String html = "<span class='example'>Simple text</span>";

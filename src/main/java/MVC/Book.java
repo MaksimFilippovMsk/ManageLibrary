@@ -1,6 +1,7 @@
 package MVC;
 
 import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 @Entity

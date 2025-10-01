@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 public class BookService {
@@ -31,9 +32,11 @@ public class BookService {
 
     }
     public List<String> getAllAuthors(){
+        Function<Book,String> f= book->book.getAuthor();
+
         List<Book> foundBooks = bookRepository.findAll();
         List<String> authors = foundBooks.stream()
-                                            .map(book->book.getAuthor())
+                                            .map(f)
                                             .distinct()
                                             .toList();
         return authors;

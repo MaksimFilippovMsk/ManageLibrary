@@ -21,7 +21,7 @@ public class BookController {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
 
-    @PostMapping("/addBook")
+    @PostMapping("/admin/addBook")
     public ResponseEntity<?> addBook(@RequestBody Book book) {
         bookService.addBook(book);
         if(bookService.containsBook(book)) {
@@ -30,7 +30,7 @@ public class BookController {
         return new ResponseEntity<>("Не удалось добавить книгу",HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @PutMapping("/changeBook")
+    @PutMapping("/admin/changeBook")
     public void changeBook(@RequestBody Book newBook, @RequestParam(name = "id") long id) {         // fixme
         bookService.changeBook(newBook, id);
     }

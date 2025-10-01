@@ -1,11 +1,19 @@
 package marketplaceclient;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import java.util.Objects;
 
 public class BookResult {
+
     private String title;
+
     private int price;
+
     private String link;
+//    public BookResult(){}
 
     public BookResult(String title, int price, String link) {
         this.title = title;
